@@ -1,0 +1,10 @@
+<h2>Question: {{ question }}</h2>
+<p><b>Context:</b> {{ context }}</p>
+
+<form method="post">
+  {% for opt in options %}
+    <input type="radio" name="selected" value="{{ opt }}"> {{ opt }}<br>
+  {% endfor %}
+  <input type="hidden" name="question" value="{{ question }}">
+  <input type="submit" value="Submit">
+</form>
