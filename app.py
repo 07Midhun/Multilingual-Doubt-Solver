@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, Blueprint, render_template, request
 import pandas as pd
 import os
@@ -95,4 +96,14 @@ app.secret_key = "secret123"
 app.register_blueprint(main_blueprint)
 
 if __name__ == "__main__":
+=======
+from flask import Flask
+from app.routes import main_blueprint
+
+app = Flask(__name__)
+app.config.from_pyfile('config.py')
+app.register_blueprint(main_blueprint)
+
+if __name__ == '__main__':
+>>>>>>> 56152b6b5a25c3b8db203826d545e3f6b4c7b05d
     app.run(debug=True)

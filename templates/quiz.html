@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,3 +115,15 @@
   </script>
 </body>
 </html>
+=======
+<h2>Question: {{ question }}</h2>
+<p><b>Context:</b> {{ context }}</p>
+
+<form method="post">
+  {% for opt in options %}
+    <input type="radio" name="selected" value="{{ opt }}"> {{ opt }}<br>
+  {% endfor %}
+  <input type="hidden" name="question" value="{{ question }}">
+  <input type="submit" value="Submit">
+</form>
+>>>>>>> 56152b6b5a25c3b8db203826d545e3f6b4c7b05d
