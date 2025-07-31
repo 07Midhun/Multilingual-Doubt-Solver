@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Questions</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .question-box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .question-box h3 {
+            margin-top: 0;
+        }
+        .question-box label {
+            display: block;
+            margin: 8px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Answer the Questions</h2>
+    <form method="POST" action="/submit_quiz">
+    <input type="hidden" name="subject" value="{{ subject }}">
+    <input type="hidden" name="selected_class" value="{{ selected_class }}">
+    <input type="hidden" name="difficulty" value="{{ difficulty }}">
+
+        
+        {% for question in questions %}
+            {% set q_index = loop.index0 %}
+            <div class="question-box">
+                <p><strong>{{ loop.index }}. {{ question.q }}</strong></p>
+                {% for option in question.options %}
+                    <label>
+                        <input type="radio" name="q{{ q_index }}" value="{{ option }}"> {{ option }}
+                    </label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <button type="submit">Submit Quiz</button>
+    </form>
+</body>
+</html>

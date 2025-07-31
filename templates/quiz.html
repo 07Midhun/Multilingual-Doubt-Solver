@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label, select {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Start Your Quiz</h2>
+    <form action="/start_quiz" method="POST">
+      <label for="class">Select Class:</label>
+      <select name="class" id="class" required>
+        <option value="">--Select Class--</option>
+        {% for i in range(1, 13) %}
+        <option value="{{ i }}">Class {{ i }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="subject">Select Subject:</label>
+      <select name="subject" id="subject" required>
+        <option value="">--Select Subject--</option>
+        <!-- Dynamic options inserted by JS -->
+      </select>
+
+      <label for="language">Select Language:</label>
+      <select name="language" required>
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+      </select>
+
+      <label for="difficulty">Select Difficulty:</label>
+      <select name="difficulty" required>
+        <option value="easy">Easy</option>
+        <option value="moderate">Moderate</option>
+        <option value="hard">Hard</option>
+      </select>
+
+      <button type="submit">Begin Quiz</button>
+    </form>
+  </div>
+
+  <script>
+    const subjectOptions = {
+      1: ["Math", "English"],
+      2: ["Math", "EVS"],
+      3: ["Math", "EVS"],
+      4: ["Math", "Science", "English"],
+      5: ["Math", "Science", "English"],
+      6: ["Math", "Science", "Social"],
+      7: ["Math", "Science", "Social", "English"],
+      8: ["Math", "Science", "Social", "English"],
+      9: ["Math", "Science", "Social", "History"],
+      10: ["Math", "Science", "Social", "History"],
+      11: ["Maths", "Physics", "Chemistry", "Biology", "CS", "Economics"],
+      12: ["Maths", "Physics", "Chemistry", "Biology", "CS", "Economics"]
+    };
+
+    document.getElementById("class").addEventListener("change", function () {
+      const selectedClass = this.value;
+      const subjectSelect = document.getElementById("subject");
+      subjectSelect.innerHTML = '<option value="">--Select Subject--</option>';
+
+      if (subjectOptions[selectedClass]) {
+        subjectOptions[selectedClass].forEach(subject => {
+          const opt = document.createElement("option");
+          opt.value = subject.toLowerCase();
+          opt.text = subject;
+          subjectSelect.appendChild(opt);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

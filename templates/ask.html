@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Oracle | Multilingual Doubt Solver</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Ultra-Premium Color Palette */
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --light: #ccd6f6;
+            --dark: #020c1b;
+            --muted: #8892b0;
+            --gold: #d4af37;
+        }
+
+        /* Sophisticated Animated Background */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            overflow: hidden;
+            position: relative;
+            color: var(--light);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Molecular Structure Animation */
+        .molecular-structure {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .atom {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .bond {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transform-origin: left center;
+        }
+
+        /* Geometric Floating Elements */
+        .geometric-decoration {
+            position: absolute;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            opacity: 0.15;
+            animation: floatRotate 40s linear infinite;
+        }
+
+        @keyframes floatRotate {
+            0% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(180deg) translateY(-50px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        /* Main Container - Luxurious Glass Card */
+        .container {
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 50px 60px;
+            border-radius: 16px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 10px 40px rgba(2, 12, 27, 0.6);
+            text-align: center;
+            max-width: 700px;
+            width: 85%;
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(2, 12, 27, 0.8);
+            border-color: rgba(100, 255, 218, 0.4);
+        }
+
+        /* Typography Excellence */
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--light);
+            margin-bottom: 35px;
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        /* Ultra-Refined Form Elements */
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        select {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            background: rgba(23, 42, 69, 0.5);
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364ffda'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 18px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 6px;
+            background: rgba(23, 42, 69, 0.5);
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            resize: none;
+            transition: all 0.4s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        textarea::placeholder {
+            color: var(--muted);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        /* Exquisite Button */
+        button {
+            margin-top: 25px;
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.1);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+
+        button:hover {
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+
+        button:hover:before {
+            width: 100%;
+        }
+
+        /* Ultra-Smooth Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .container {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Responsive Excellence */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                width: 90%;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Molecular Structure Animation -->
+    <div class="molecular-structure" id="molecularStructure"></div>
+    
+    <!-- Geometric Decorations -->
+    <div class="geometric-decoration" style="width: 300px; height: 300px; top: -150px; right: -150px; border-radius: 50%;"></div>
+    <div class="geometric-decoration" style="width: 200px; height: 200px; bottom: -100px; left: -100px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;"></div>
+    <div class="geometric-decoration" style="width: 400px; height: 400px; top: 50%; left: -200px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Academic Oracle</h2>
+        <form method="POST" action="/ask">
+            <div class="form-group">
+                <label for="lang">Language</label>
+                <select name="lang" id="lang">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="te">Telugu</option>
+                    <option value="ml">Malayalam</option>
+                    <option value="bn">Bengali</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="question">Your Inquiry</label>
+                <textarea name="question" id="question" placeholder="Compose your academic question with precision..."></textarea>
+            </div>
+            
+            <button type="submit">
+                <span>Seek Wisdom</span>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Create molecular structure animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const molecular = document.getElementById('molecularStructure');
+            const atomCount = 15;
+            const bondCount = 25;
+            
+            // Create atoms
+            for (let i = 0; i < atomCount; i++) {
+                const atom = document.createElement('div');
+                atom.classList.add('atom');
+                
+                // Position atoms randomly
+                atom.style.left = `${Math.random() * 100}%`;
+                atom.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 8 + 4;
+                atom.style.width = `${size}px`;
+                atom.style.height = `${size}px`;
+                
+                // Random opacity
+                atom.style.opacity = Math.random() * 0.4 + 0.1;
+                
+                // Add subtle animation
+                const duration = Math.random() * 20 + 10;
+                atom.style.animation = `float ${duration}s ease-in-out infinite alternate`;
+                atom.style.animationDelay = `${Math.random() * 10}s`;
+                
+                molecular.appendChild(atom);
+            }
+            
+            // Create bonds between atoms
+            const atoms = document.querySelectorAll('.atom');
+            for (let i = 0; i < bondCount; i++) {
+                if (atoms.length < 2) continue;
+                
+                const atom1 = atoms[Math.floor(Math.random() * atoms.length)];
+                const atom2 = atoms[Math.floor(Math.random() * atoms.length)];
+                
+                if (atom1 === atom2) continue;
+                
+                const bond = document.createElement('div');
+                bond.classList.add('bond');
+                
+                // Calculate position and angle between atoms
+                const rect1 = atom1.getBoundingClientRect();
+                const rect2 = atom2.getBoundingClientRect();
+                
+                const x1 = rect1.left + rect1.width/2;
+                const y1 = rect1.top + rect1.height/2;
+                const x2 = rect2.left + rect2.width/2;
+                const y2 = rect2.top + rect2.height/2;
+                
+                const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                
+                bond.style.width = `${length}px`;
+                bond.style.height = '1px';
+                bond.style.left = `${x1}px`;
+                bond.style.top = `${y1}px`;
+                bond.style.transform = `rotate(${angle}deg)`;
+                bond.style.opacity = Math.random() * 0.2 + 0.05;
+                
+                molecular.appendChild(bond);
+            }
+        });
+    </script>
+</body>
+</html>
